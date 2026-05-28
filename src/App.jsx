@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+﻿import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Canvas, extend, useFrame, useLoader, useThree } from "@react-three/fiber";
 import * as THREE from "three";
@@ -164,21 +164,23 @@ const driveCards = [
   },
 ];
 
+const asset = (path) => import.meta.env.BASE_URL + path;
+
 const dreamCars = [
   {
     id: "gwagen",
     name: "Mercedes-Benz G-Class",
-    tone: "Black G-Wagon · studio set",
-    thumb: "/turntable/gwagen/frame01.png",
+    tone: "Black G-Wagon Â· studio set",
+    thumb: asset("turntable/gwagen/frame01.png"),
     frames: [
-      "/turntable/gwagen/frame01.png",
-      "/turntable/gwagen/frame02.png",
-      "/turntable/gwagen/frame03.png",
-      "/turntable/gwagen/frame04.png",
-      "/turntable/gwagen/frame05.png",
-      "/turntable/gwagen/frame06.png",
-      "/turntable/gwagen/frame07.png",
-      "/turntable/gwagen/frame08.png",
+      asset("turntable/gwagen/frame01.png"),
+      asset("turntable/gwagen/frame02.png"),
+      asset("turntable/gwagen/frame03.png"),
+      asset("turntable/gwagen/frame04.png"),
+      asset("turntable/gwagen/frame05.png"),
+      asset("turntable/gwagen/frame06.png"),
+      asset("turntable/gwagen/frame07.png"),
+      asset("turntable/gwagen/frame08.png"),
     ],
     text: "Tegas, kuat, dan punya presence. G-Class terasa seperti simbol kontrol, proteksi, dan standar hidup yang ingin dicapai.",
     spec: ["Presence", "Control", "Power"],
@@ -186,17 +188,17 @@ const dreamCars = [
   {
     id: "bmw",
     name: "BMW Executive Sedan",
-    tone: "Silver luxury sedan · studio set",
-    thumb: "/turntable/bmw/frame01.png",
+    tone: "Silver luxury sedan Â· studio set",
+    thumb: asset("turntable/bmw/frame01.png"),
     frames: [
-      "/turntable/bmw/frame01.png",
-      "/turntable/bmw/frame02.png",
-      "/turntable/bmw/frame03.png",
-      "/turntable/bmw/frame04.png",
-      "/turntable/bmw/frame05.png",
-      "/turntable/bmw/frame06.png",
-      "/turntable/bmw/frame07.png",
-      "/turntable/bmw/frame08.png",
+      asset("turntable/bmw/frame01.png"),
+      asset("turntable/bmw/frame02.png"),
+      asset("turntable/bmw/frame03.png"),
+      asset("turntable/bmw/frame04.png"),
+      asset("turntable/bmw/frame05.png"),
+      asset("turntable/bmw/frame06.png"),
+      asset("turntable/bmw/frame07.png"),
+      asset("turntable/bmw/frame08.png"),
     ],
     text: "Rapi, dewasa, dan strategis. Cocok untuk sisi dia yang suka bisnis, positioning, dan kesan profesional yang tidak perlu terlalu banyak bicara.",
     spec: ["Precision", "Business", "Elegance"],
@@ -204,14 +206,14 @@ const dreamCars = [
   {
     id: "honda",
     name: "Honda Civic RS",
-    tone: "White sedan · studio set",
-    thumb: "/turntable/honda/frame01.png",
+    tone: "White sedan Â· studio set",
+    thumb: asset("turntable/honda/frame01.png"),
     frames: [
-      "/turntable/honda/frame01.png",
-      "/turntable/honda/frame02.png",
-      "/turntable/honda/frame03.png",
-      "/turntable/honda/frame04.png",
-      "/turntable/honda/frame05.png",
+      asset("turntable/honda/frame01.png"),
+      asset("turntable/honda/frame02.png"),
+      asset("turntable/honda/frame03.png"),
+      asset("turntable/honda/frame04.png"),
+      asset("turntable/honda/frame05.png"),
     ],
     text: "Clean, modern, dan lebih sporty. Mewakili sisi yang suka desain bersih, karakter tegas, dan rasa yang tetap premium tanpa berlebihan.",
     spec: ["Clean", "Modern", "Sharp"],
@@ -219,14 +221,14 @@ const dreamCars = [
   {
     id: "porsche",
     name: "Porsche 911 Turbo S",
-    tone: "Silver sports coupe · studio set",
-    thumb: "/turntable/porsche/frame01.png",
+    tone: "Silver sports coupe Â· studio set",
+    thumb: asset("turntable/porsche/frame01.png"),
     frames: [
-      "/turntable/porsche/frame01.png",
-      "/turntable/porsche/frame02.png",
-      "/turntable/porsche/frame03.png",
-      "/turntable/porsche/frame04.png",
-      "/turntable/porsche/frame05.png",
+      asset("turntable/porsche/frame01.png"),
+      asset("turntable/porsche/frame02.png"),
+      asset("turntable/porsche/frame03.png"),
+      asset("turntable/porsche/frame04.png"),
+      asset("turntable/porsche/frame05.png"),
     ],
     text: "Low profile, cepat, dan ikonik. Bukan sekadar cepat, tapi tentang engineering, disiplin, dan karakter yang bertahan lama.",
     spec: ["Timeless", "Speed", "Discipline"],
@@ -234,14 +236,14 @@ const dreamCars = [
   {
     id: "minivan",
     name: "Toyota Minivan Custom",
-    tone: "Black MPV · studio set",
-    thumb: "/turntable/minivan/frame01.png",
+    tone: "Black MPV Â· studio set",
+    thumb: asset("turntable/minivan/frame01.png"),
     frames: [
-      "/turntable/minivan/frame01.png",
-      "/turntable/minivan/frame02.png",
-      "/turntable/minivan/frame03.png",
-      "/turntable/minivan/frame04.png",
-      "/turntable/minivan/frame05.png",
+      asset("turntable/minivan/frame01.png"),
+      asset("turntable/minivan/frame02.png"),
+      asset("turntable/minivan/frame03.png"),
+      asset("turntable/minivan/frame04.png"),
+      asset("turntable/minivan/frame05.png"),
     ],
     text: "Praktis, kuat, dan realistis. Full black membuatnya tetap clean dan berkarakter, tapi masih masuk akal untuk hidup nyata dan mobilitas sehari-hari.",
     spec: ["Realistic", "Reliable", "Daily"],
@@ -416,7 +418,7 @@ function ProfileSection() {
         <div className="text-stack">
           <p>Orang di balik ini masih muda, tapi cara berpikirnya tidak sederhana. Pola pikirnya banyak dibentuk oleh pengalaman bisnis nyata, bukan cuma teori atau gaya berpikir mahasiswa biasa.</p>
           <p>Ada kombinasi antara kreativitas, strategi, kedalaman emosional, dan dorongan kuat untuk membangun sesuatu yang punya identitas. Bukan hanya mengejar transaksi, tapi ingin membuat sesuatu yang punya rasa, cerita, dan value.</p>
-          <p>Yang paling kuat: dia seperti sedang membangun identitas sebagai creative businessman — gabungan antara pengusaha, strategist, observer manusia, dan builder yang ingin meninggalkan karakter dalam apa yang dia bangun.</p>
+          <p>Yang paling kuat: dia seperti sedang membangun identitas sebagai creative businessman â€” gabungan antara pengusaha, strategist, observer manusia, dan builder yang ingin meninggalkan karakter dalam apa yang dia bangun.</p>
         </div>
       </div>
     </section>
@@ -765,8 +767,8 @@ function DreamGarageSection() {
       <div className="garage-panel garage-panel-turntable">
         <div className="garage-main">
           <div className="garage-nav-top">
-            <button type="button" className="nav-pill" onClick={() => switchCar(selectedIndex - 1)}>◀ Mobil Sebelumnya</button>
-            <button type="button" className="nav-pill" onClick={() => switchCar(selectedIndex + 1)}>Mobil Berikutnya ▶</button>
+            <button type="button" className="nav-pill" onClick={() => switchCar(selectedIndex - 1)}>â—€ Mobil Sebelumnya</button>
+            <button type="button" className="nav-pill" onClick={() => switchCar(selectedIndex + 1)}>Mobil Berikutnya â–¶</button>
           </div>
 
           <div className="garage-top">
@@ -938,7 +940,7 @@ function ClosingSection() {
         <p className="eyebrow">System closing note</p>
         <h2>Keep building.<br />Keep driving.</h2>
         <p>Better systems. Clearer direction. Stronger drive. Less unnecessary noise.</p>
-        <span><Gauge size={17} /> Happy Birthday · Version 30</span>
+        <span><Gauge size={17} /> Happy Birthday Â· Version 30</span>
       </motion.div>
     </section>
   );
@@ -981,3 +983,4 @@ export default function App() {
     </AnimatePresence>
   );
 }
+
